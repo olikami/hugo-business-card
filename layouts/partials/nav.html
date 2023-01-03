@@ -2,7 +2,7 @@
 	<div class="list">
 		{{- $currentPage := . -}}
 		{{- range .Site.Menus.main }}
-		<a class="item {{- if ($currentPage.IsMenuCurrent "main" .) }} active {{- end }}" href="{{ .URL | absLangURL }}">
+		<a class="item {{- if ($currentPage.IsMenuCurrent "main" .) }} active {{- end }}" href="{{ .URL }}">
 			{{ .Title }}
 		</a>
 		{{- end }}
