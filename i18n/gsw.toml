@@ -6,3 +6,18 @@ other = "Telefon"
 
 [profilepic]
 other = "Profiubiud"
+
+[linkedin]
+other = "LinkedIn"
+
+["my profile"]
+other = "Mis Profiu"
+
+[description]
+other = "Digitali Visitcharte vo {{ .Site.Title }}."
+
+[downloadVCard]
+other = "Kontakt abelade"
+
+[by]
+other = "vo"

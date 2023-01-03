@@ -26,6 +26,27 @@
 			}
 		}
 
+		.picture-credits {
+			@apply relative inline-block; 
+			svg {
+				@apply w-4 h-4 text-white absolute bottom-5 left-1 bg-black rounded-full;
+			}
+			.tooltip-content {
+				@apply 
+					opacity-0 transition-opacity w-48
+					text-xs
+					absolute -top-10 left-6
+					bg-white bg-opacity-80
+					p-2 rounded
+				;
+			}
+			&:hover {
+				.tooltip-content {
+					@apply opacity-100;
+				}	
+			}
+		}
+
 		.content {
 			@apply text-center px-3 pb-6 pt-2;
 

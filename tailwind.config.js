@@ -9,6 +9,9 @@ module.exports = {
         'grey': colors.trueGray,
         gray: colors.coolGray
       },
+      fontSize: {
+        'xxs': '.5rem'
+      }
     },
   },
   variants: {
