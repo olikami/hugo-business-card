@@ -54,11 +54,16 @@
 <link rel="apple-touch-icon" sizes="152x152" href="{{ (.Fill "152x152 png").Permalink }}"/>
 <link rel="apple-touch-icon" sizes="167x167" href="{{ (.Fill "167x167 png").Permalink }}"/>
 <link rel="apple-touch-icon" sizes="180x180" href="{{ (.Fill "180x180 png").Permalink }}"/>
+{{ end }}
 
+{{ $icon := .Resources.GetMatch "*icon*" }}
+{{ if not $icon }}{{ $icon = .Resources.GetMatch "*portrait*" }}{{ end }}
+{{ with $icon }}
 <!-- Browser icons -->
 <link rel="icon" type="image/png" sizes="32x32" href="{{ (.Fill "32x32 png").Permalink }}"/>
 <link rel="icon" type="image/png" sizes="16x16" href="{{ (.Fill "16x16 png").Permalink }}"/>
-{{ end -}}
+{{ end }}
+
 
 <!-- Preconnect to external domains from menu -->
 {{- range .Site.Menus.main }}
