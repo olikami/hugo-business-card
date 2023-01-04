@@ -14,7 +14,7 @@
 		<div class="list">
 			{{- $currentLangague := .Site.Language -}}
 			{{- range .Page.AllTranslations }}
-			<a class="item {{- if eq $currentLangague.Lang .Lang }} active {{- end }}" href="{{ .Permalink }}">
+			<a class="item {{- if eq $currentLangague.Lang .Lang }} active {{- end }}" href="{{ .RelPermalink }}">
 				{{ .Language.LanguageName }}
 			</a>
 			{{- end }}
