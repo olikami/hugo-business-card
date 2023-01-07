@@ -2,7 +2,7 @@ module.exports = {
   plugins: [
   	require('tailwindcss'),
     require('@fullhuman/postcss-purgecss')({
-    	content: ['./**/*.html',],
+    	content: ['./public/**/*.html',],
         extractors: [
             {
                 extractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
