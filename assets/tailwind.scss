@@ -17,6 +17,10 @@
 
 	/* Card */
 
+	main {
+		@apply m-auto p-4;
+	}
+
 	.card {
 		@apply rounded-lg overflow-hidden shadow max-w-lg my-1 bg-white dark:bg-black text-black dark:text-white overflow-visible shadow-lg relative;
 
@@ -48,6 +52,10 @@
 					@apply opacity-100;
 				}	
 			}
+		}
+
+		.card-lower {
+			@apply p-2;
 		}
 
 		.content {
@@ -84,10 +92,15 @@
 			@apply rounded-t-lg w-full max-h-48 object-cover;
 		}
 
-		.portrait-img > img {
-			@apply rounded-full border-solid border-white dark:border-gray-900 border-2 -mt-16 w-32 h-32;
+		.img-container {
+			@apply flex justify-center;
+
+			.portrait-img > img {
+				@apply rounded-full border-solid border-white dark:border-gray-900 border-2 -mt-16 w-32 h-32;
+			}
 		}
 
+		
 	}
 
 	/* Menu */
