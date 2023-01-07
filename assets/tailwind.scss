@@ -12,7 +12,7 @@
 	body {
 		@apply 
 			bg-grey-100 dark:bg-grey-900 
-			min-h-screen;
+			flex flex-col h-screen relative;
 	}
 
 	/* Card */
