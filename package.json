@@ -6,7 +6,7 @@
     "cssnano": "^5.0.12",
     "postcss": "^8.2.6",
     "postcss-100vh-fix": "^1.0.2",
-    "postcss-cli": "^9.1.0",
+    "postcss-cli": "^10.1.0",
     "tailwindcss": "^2.2.19"
   }
 }
