@@ -11,6 +11,7 @@ module.exports = {
         ],
         keyframe: true
     }),
+    require('postcss-100vh-fix'),
     require('autoprefixer')({
     	browserlist: [
     		'defaults',
