@@ -92,14 +92,10 @@
 
 	.menu {
 
-		@apply text-xs absolute top-2 dark:text-white;
+		@apply text-xs relative dark:text-white flex flex-row justify-between;
 
-		&.left {
-			@apply left-2;
-		}
-
-		&.right {
-			@apply right-2;
+		div {
+			@apply mt-2 mx-2;
 		}
 
 		.list {
@@ -117,7 +113,7 @@
 
 	/* Footer */
 	footer {
-		@apply absolute bottom-2 w-full dark:text-white;
+		@apply relative bottom-2 w-full dark:text-white;
 
 		p {
 			@apply text-xs p-2 text-center;

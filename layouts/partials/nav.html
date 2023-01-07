@@ -1,23 +1,25 @@
-<div class="menu left">
-	<div class="list">
-		{{- $currentPage := . -}}
-		{{- range .Site.Menus.main }}
-		<a class="item {{- if ($currentPage.IsMenuCurrent "main" .) }} active {{- end }}" href="{{ .URL }}">
-			{{ .Title }}
-		</a>
-		{{- end }}
-	</div>
-</div>
-
-<div class="menu right">
-	{{ if gt (len .Page.AllTranslations) 1 }}
+<div class="menu">
+	<div class="left">
 		<div class="list">
-			{{- $currentLangague := .Site.Language -}}
-			{{- range .Page.AllTranslations }}
-			<a class="item {{- if eq $currentLangague.Lang .Lang }} active {{- end }}" href="{{ .RelPermalink }}">
-				{{ .Language.LanguageName }}
+			{{- $currentPage := . -}}
+			{{- range .Site.Menus.main }}
+			<a class="item {{- if ($currentPage.IsMenuCurrent "main" .) }} active {{- end }}" href="{{ .URL }}">
+				{{ .Title }}
 			</a>
 			{{- end }}
 		</div>
-	{{ end }}
+	</div>
+
+	<div class="right">
+		{{ if gt (len .Page.AllTranslations) 1 }}
+			<div class="list">
+				{{- $currentLangague := .Site.Language -}}
+				{{- range .Page.AllTranslations }}
+				<a class="item {{- if eq $currentLangague.Lang .Lang }} active {{- end }}" href="{{ .RelPermalink }}">
+					{{ .Language.LanguageName }}
+				</a>
+				{{- end }}
+			</div>
+		{{ end }}
+	</div>
 </div>
