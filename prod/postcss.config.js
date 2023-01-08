@@ -9,7 +9,8 @@ module.exports = {
                 extensions: ['html'],
             },
         ],
-        keyframe: true
+        keyframes: true,
+        variables: true
     }),
     require('postcss-100vh-fix'),
     require('autoprefixer')({
