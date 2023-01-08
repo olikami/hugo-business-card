@@ -24,7 +24,7 @@
     must-revalidate'''
   
 [[headers]]
-for = "*.webp"
+  for = "*.webp"
   [headers.values]
     cache-control = '''
     public
