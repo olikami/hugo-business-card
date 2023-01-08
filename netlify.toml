@@ -22,9 +22,9 @@
     public
     max-age=604800,
     must-revalidate'''
-  for = "*.webp"
-
+  
 [[headers]]
+for = "*.webp"
   [headers.values]
     cache-control = '''
     public
