@@ -52,7 +52,7 @@
 			{{ $data := newScratch }}
 			{{ $data.Set "fancyImage" ($background | images.Filter (images.Brightness -10) (images.GaussianBlur 10) $logoFilter) }}
 			{{ $font := resources.GetRemote "https://github.com/googlefonts/opensans/raw/main/fonts/ttf/OpenSans-Light.ttf" }}
-			{{ $fontsize := div $portraitSize 10 }}
+			{{ $fontsize := div $portraitSize 12 }}
 			{{ if $page.Params.imgcredits }}
 				{{ $data.Set "imgCredits" (printf "%s %s %s." 
 					$page.Params.imgcredits.title 
