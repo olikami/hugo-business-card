@@ -33,9 +33,9 @@
 		}
 
 		.picture-credits {
-			@apply relative inline-block; 
+			@apply absolute inline-block; 
 			svg {
-				@apply w-4 h-4 text-white absolute bottom-5 left-1 bg-black rounded-full;
+				@apply w-4 h-4 text-white absolute bottom-1 left-1 bg-black rounded-full;
 			}
 			.tooltip-content {
 				@apply 
