@@ -41,7 +41,7 @@
   						<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" />
 					</svg>
 					<div class="tooltip-content">
-						<a href="{{ .url }}">{{ .title }}</a>{{ with .author }} {{ T "by" }} <a href="{{ .url }}">{{ .name }}</a>{{ end }} is licensed under <a href="{{ .license.url }}">{{ .license.name }}</a>.
+						<a href="{{ .url }}">{{ .title }}</a>{{ with .author }} {{ T "by" }} <a href="{{ .url }}">{{ .name }}</a>{{ end }} {{T "isLicensed" }} <a href="{{ .license.url }}">{{ .license.name }}</a>.
 					</div>
 				</div>
 			{{ end }}
@@ -54,7 +54,19 @@
 			{{ $font := resources.GetRemote "https://github.com/googlefonts/opensans/raw/main/fonts/ttf/OpenSans-Light.ttf" }}
 			{{ $fontsize := div $portraitSize 10 }}
 			{{ if $page.Params.imgcredits }}
-				{{ $textcontent := (printf "%s is licensed under %s." $page.Params.imgcredits.title $page.Params.imgcredits.license.name)}}
+				{{ $data.Set "imgCredits" (printf "%s %s %s." 
+					$page.Params.imgcredits.title 
+					(T "isLicensed")
+					$page.Params.imgcredits.license.name) }}
+				{{ if $page.Params.imgcredits.author }}
+					{{ $data.Set "imgCredits" (printf "%s %s %s %s %s." 
+						$page.Params.imgcredits.title
+						(T "by")
+						$page.Params.imgcredits.author.name
+						(T "isLicensed")
+						$page.Params.imgcredits.license.name) }}
+				{{ end }}
+				{{ $textcontent := $data.Get "imgCredits" }}
 				{{ $textoptions := dict 
 					"color" "#fff"
 					"size" $fontsize

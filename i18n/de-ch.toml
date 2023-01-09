@@ -21,3 +21,6 @@ other = "Kontakt herunterladen"
 
 [by]
 other = "von"
+
+[isLicensed]
+other = "ist lizenziert unter"

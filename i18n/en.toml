@@ -21,3 +21,6 @@ other = "download contact"
 
 [by]
 other = "by"
+
+[isLicensed]
+other = "is licensed under"
