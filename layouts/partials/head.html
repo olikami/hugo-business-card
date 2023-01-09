@@ -41,9 +41,13 @@
 
 {{ if hugo.IsProduction }}
 {{ $style := $scss | resources.ToCSS | resources.PostCSS (dict "config" "prod/postcss.config.js") | fingerprint | resources.PostProcess }}
+{{ if gt (len .Site.Pages) 1 }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+{{ else }}
 <style>
 	{{ $style.Content | safeCSS }}
 </style>
+{{ end }}
 {{ else }}
 {{ $style := $scss | resources.ToCSS | resources.PostCSS (dict "config" "dev/postcss.config.js") | fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
