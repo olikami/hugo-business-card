@@ -5,28 +5,3 @@
 [build.environment]
   HUGO_VERSION = "0.109.0"
   NODE_VERSION = "18"
-
-
-[[headers]]
-  for = "*.png"
-  [headers.values]
-    cache-control = '''
-    public,
-    max-age=604800,
-    must-revalidate'''
-
-[[headers]]
-  for = "*.jpg"
-  [headers.values]
-    cache-control = '''
-    public,
-    max-age=604800,
-    must-revalidate'''
-  
-[[headers]]
-  for = "*.webp"
-  [headers.values]
-    cache-control = '''
-    public,
-    max-age=604800,
-    must-revalidate'''
