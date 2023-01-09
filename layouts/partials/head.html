@@ -41,7 +41,7 @@
 
 {{ if hugo.IsProduction }}
 {{ $style := $scss | resources.ToCSS | resources.PostCSS (dict "config" "prod/postcss.config.js") | fingerprint | resources.PostProcess }}
-{{ if gt (len .Site.Pages) 1 }}
+{{ if gt (len .Site.AllPages) 2 }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 {{ else }}
 <style>
