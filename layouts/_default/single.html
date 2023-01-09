@@ -1,6 +1,8 @@
 {{ define "main" }}
 	<main>
 		<div class="card">
+			{{ $background := .Resources.GetMatch "background" | fingerprint }}
+			{{ $portrait := .Resources.GetMatch "portrait" | fingerprint }}
 			{{ with  .OutputFormats.Get "vcf" -}}
 			<div class="icon">
 				<a href="{{ .RelPermalink }}" aria-label="{{ T "downloadVCard" }}">
@@ -10,7 +12,6 @@
 				</a>
 			</div>
 			{{- end }}
-			{{ $background := .Resources.GetMatch "background" | fingerprint }}
 			{{ $page := .Page }}
 			{{ with $background }}
 			<a href="{{ .RelPermalink }}" target="_blank">
@@ -45,7 +46,33 @@
 				</div>
 			{{ end }}
 			{{ end }}
-			{{ $portrait := .Resources.GetMatch "portrait" | fingerprint }}
+			{{ if (and $background $portrait) }}
+			{{ $portraitSize := (div $background.Height 4 )}}
+			{{ $logoFilter := (images.Overlay ( ( printf "%dx%d jpg" $portraitSize $portraitSize ) | $portrait.Fill ) (sub (div $background.Width 2) (div $portraitSize 2)) (sub (div $background.Height 2 ) (div $portraitSize 2) ) ) }}
+			{{ $data := newScratch }}
+			{{ $data.Set "fancyImage" ($background | images.Filter (images.Brightness -10) (images.GaussianBlur 10) $logoFilter) }}
+			{{ $font := resources.Get "HelveticaNeue-Light-08.ttf" }}
+			{{ $fontsize := div $portraitSize 10 }}
+			{{ if $page.Params.imgcredits }}
+				{{ $textcontent := (printf "%s is licensed under %s." $page.Params.imgcredits.title $page.Params.imgcredits.license.name)}}
+				{{ $textoptions := dict 
+					"color" "#fff"
+					"size" $fontsize
+					"font" $font
+					"x" (div $fontsize 2)
+					"y" (sub $background.Height (add $fontsize (div $fontsize 2)))
+					"linespacing" 1
+				}}
+				{{ $text := images.Text $textcontent $textoptions }}
+				{{ $data.Set "fancyImage" ( $data.Get "fancyImage"| images.Filter $text ) }}
+			{{ end }}
+			{{ $img := $data.Get "fancyImage" | fingerprint }}
+			<a href="{{ $img.RelPermalink }}" target="_blank" class="icon-merge-image">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+					<path fill-rule="evenodd" d="M1 5.25A2.25 2.25 0 013.25 3h13.5A2.25 2.25 0 0119 5.25v9.5A2.25 2.25 0 0116.75 17H3.25A2.25 2.25 0 011 14.75v-9.5zm1.5 5.81v3.69c0 .414.336.75.75.75h13.5a.75.75 0 00.75-.75v-2.69l-2.22-2.219a.75.75 0 00-1.06 0l-1.91 1.909.47.47a.75.75 0 11-1.06 1.06L6.53 8.091a.75.75 0 00-1.06 0l-2.97 2.97zM12 7a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd" />
+				</svg>
+			</a>
+			{{ end }}
 			{{ $title := .Page.Title }}
 			{{ with $portrait }}
 			<div class="img-container">
