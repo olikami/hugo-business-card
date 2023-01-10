@@ -56,7 +56,8 @@
 							{{- end -}}"
 						type="image/jpeg"
 					/>
-					<img src="{{ (.Fill "512x192").RelPermalink }}" alt="">
+					{{ with (.Fill "512x192") }}
+					<img src="{{ .RelPermalink }}" alt="" width="{{ .Width }}" height="{{ .Height }}">
 				</picture>
 			</a>
 			{{ with $page.Params.imgcredits }}
@@ -91,9 +92,12 @@
 								{{- end -}}"
 							type="image/jpeg"
 						/>
+						{{ with (.Fill "192x192") }}
 						<img
-							src="{{ (.Fill "192x192").RelPermalink }}" alt="{{ T "profilepic" }} {{ $title }}"
+							src="{{ .RelPermalink }}" alt="{{ T "profilepic" }} {{ $title }}"
+							width="{{ .Width }}" height="{{ .Height }}"
 						>
+						{{ end }}
 					</picture>	
 				</a>
 			</div>
