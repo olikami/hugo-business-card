@@ -58,6 +58,7 @@
 					/>
 					{{ with (.Fill "512x192") }}
 					<img src="{{ .RelPermalink }}" alt="" width="{{ .Width }}" height="{{ .Height }}">
+					{{ end }}
 				</picture>
 			</a>
 			{{ with $page.Params.imgcredits }}
