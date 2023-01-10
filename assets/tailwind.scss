@@ -54,18 +54,6 @@
 			}
 		}
 
-		.icon-merge-image {
-			@apply absolute inline-block w-full flex justify-end; 
-			svg {
-				@apply 
-					w-4 h-4 
-					absolute 
-					top-1 right-1
-					text-black hover:text-blue-600 dark:text-white 
-					transition-colors;
-			}
-		}
-
 		.card-lower {
 			@apply p-2;
 		}
