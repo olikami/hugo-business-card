@@ -19,7 +19,7 @@
 			{{ $logoFilter := (images.Overlay ( ( printf "%dx%d jpg" $portraitSize $portraitSize ) | $portrait.Fill ) (sub (div $background.Width 2) (div $portraitSize 2)) (sub (div $background.Height 2 ) (div $portraitSize 2) ) ) }}
 			{{ $data := newScratch }}
 			{{ $data.Set "fancyImage" ($background | images.Filter (images.Brightness -10) (images.GaussianBlur 10) $logoFilter) }}
-			{{ $font := resources.GetRemote "https://github.com/googlefonts/opensans/raw/main/fonts/ttf/OpenSans-Italic.ttf" }}
+			{{ $font := resources.GetRemote "https://github.com/googlefonts/opensans/raw/main/fonts/ttf/OpenSans-Light.ttf" }}
 			{{ $fontsize := div $portraitSize 10 }}
 			{{ if $page.Params.imgcredits }}
 				{{ $textcontent := (printf "%s is licensed under %s." $page.Params.imgcredits.title $page.Params.imgcredits.license.name)}}
