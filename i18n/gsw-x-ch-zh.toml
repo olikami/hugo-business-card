@@ -1,0 +1,26 @@
+[email]
+other = "e Mail"
+
+[phone]
+other = "Telefon"
+
+[profilepic]
+other = "Profilbild"
+
+[linkedin]
+other = "LinkedIn"
+
+["my profile"]
+other = "Mis Profil"
+
+[description]
+other = "Digitali Visitcharte vo {{ .Site.Title }}."
+
+[downloadVCard]
+other = "Kontakt abelade"
+
+[by]
+other = "vo"
+
+[isLicensed]
+other = "isch lizenziert"
