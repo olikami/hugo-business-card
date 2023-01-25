@@ -24,3 +24,6 @@ other = "by"
 
 [isLicensed]
 other = "is licensed under"
+
+[mastodon]
+other = "mastodon"

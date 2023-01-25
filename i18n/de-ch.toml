@@ -24,3 +24,6 @@ other = "von"
 
 [isLicensed]
 other = "ist lizenziert unter"
+
+[mastodon]
+other = "Mastodon"

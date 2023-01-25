@@ -125,6 +125,15 @@
 							{{ .Page.Params.email }}
 						</a>
 					</div>
+
+					{{ with .Page.Params.mastodon }}
+					<div>
+						<h2>{{ T "mastodon" }}</h2>
+						<a rel="me" href="{{ . }}">
+							{{ replaceRE "^https?://.+..+/@(.+)" "@$1" . }}
+						</a>
+					</div>
+					{{ end }}
 					{{ with .Page.Params.linkedin }}
 					<div>
 						<h2>{{ T "linkedin" }}</h2>
