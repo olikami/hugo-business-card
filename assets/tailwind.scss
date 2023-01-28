@@ -66,7 +66,11 @@
 			}
 
 			.inner {
-				@apply mt-2 font-sans font-light;
+				@apply mt-2 font-sans font-light text-left;
+
+				p:not(:last-child)  {
+        			margin-bottom: 1rem;
+    			}
 			}
 		}
 
