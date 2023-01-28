@@ -62,11 +62,15 @@
 			@apply text-center px-3 pb-6 pt-2;
 
 			h1.title {
-				@apply text-xl font-sans;
+				@apply text-xl font-sans font-medium;
 			}
 
 			.inner {
 				@apply mt-2 font-sans font-light text-left;
+
+				h2 {
+					@apply text-lg font-medium;
+				}
 
 				p:not(:last-child)  {
         			margin-bottom: 1rem;
