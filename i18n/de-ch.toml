@@ -27,3 +27,6 @@ other = "ist lizenziert unter"
 
 [mastodon]
 other = "Mastodon"
+
+[imgcredits]
+other = "{{ .Params.imgcredits.title }} ist lizenziert unter {{ .Params.imgcredits.license.name }}."

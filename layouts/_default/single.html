@@ -22,7 +22,7 @@
 			{{ $font := resources.GetRemote "https://github.com/googlefonts/opensans/raw/main/fonts/ttf/OpenSans-Light.ttf" }}
 			{{ $fontsize := div $portraitSize 10 }}
 			{{ if $page.Params.imgcredits }}
-				{{ $textcontent := (printf "%s is licensed under %s." $page.Params.imgcredits.title $page.Params.imgcredits.license.name)}}
+				{{ $textcontent := (T "imgcredits" $page)}}
 				{{ $textoptions := dict 
 					"color" "#fff"
 					"size" $fontsize
