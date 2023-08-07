@@ -1,7 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ['./hugo_stats.json'],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend:{
