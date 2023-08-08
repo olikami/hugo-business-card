@@ -35,9 +35,9 @@
 				{{ $data.Set "fancyImage" ( $data.Get "fancyImage"| images.Filter $text ) }}
 			{{ end }}
 			{{ $img := $data.Get "fancyImage" }}
-			<a href="{{ $img.RelPermalink }}" target="_blank">
+			<a href="{{ $img.RelPermalink }}" target="_blank" aria-label="{{ T "headerimg" $page }}">
 			{{ else }}
-			<a href="{{ .RelPermalink }}" target="_blank">
+			<a href="{{ .RelPermalink }}" target="_blank" aria-label="{{ T "headerimg" $page }}">
 			{{ end }}
 				<picture class="cover-img">
 					<source 

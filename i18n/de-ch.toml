@@ -30,3 +30,6 @@ other = "Mastodon"
 
 [imgcredits]
 other = "{{ .Params.imgcredits.title }} ist lizenziert unter {{ .Params.imgcredits.license.name }}."
+
+[headerimg]
+other = "Banner Bild von {{ .Site.Title }}"
