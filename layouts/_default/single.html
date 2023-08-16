@@ -35,6 +35,7 @@
 				{{ $data.Set "fancyImage" ( $data.Get "fancyImage"| images.Filter $text ) }}
 			{{ end }}
 			{{ $img := $data.Get "fancyImage" }}
+			{{ $img := slice $img | resources.Concat "banner.jpg" | resources.Fingerprint }}
 			<a href="{{ $img.RelPermalink }}" target="_blank" aria-label="{{ T "headerimg" $page }}">
 			{{ else }}
 			<a href="{{ .RelPermalink }}" target="_blank" aria-label="{{ T "headerimg" $page }}">
