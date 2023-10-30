@@ -1,8 +1,8 @@
 {{ define "main" }}
 	<main>
 		<div class="card">
-			{{ $background := .Resources.GetMatch "background" | fingerprint }}
-			{{ $portrait := .Resources.GetMatch "portrait" | fingerprint }}
+			{{ $background := .Resources.GetMatch "background" }}
+			{{ $portrait := .Resources.GetMatch "portrait" }}
 			{{ with  .OutputFormats.Get "vcf" -}}
 			<div class="icon">
 				<a href="{{ .RelPermalink }}" aria-label="{{ T "downloadVCard" }}" title="{{ T "downloadVCard" }}">
