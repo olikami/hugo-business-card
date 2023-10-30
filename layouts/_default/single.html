@@ -120,12 +120,14 @@
 						</a>
 					</div>
 					{{ end }}
+					{{ with .Page.Params.email }}
 					<div>
 						<h2>{{ T "email" }}</h2>
-						<a href="mailto:{{  .Page.Params.email }}">
-							{{ .Page.Params.email }}
+						<a href="mailto:{{  . }}">
+							{{ . }}
 						</a>
 					</div>
+					{{ end }}
 
 					{{ with .Page.Params.mastodon }}
 					<div>
