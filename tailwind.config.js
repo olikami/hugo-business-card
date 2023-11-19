@@ -14,12 +14,12 @@ module.exports = {
       },
       keyframes: {
         colors: {
-          '0%, 100%': { 'background-color': '#7df9ff', 'border-color': '#7df9ff' },
-          '16.667%': { 'background-color': '#ff4911', 'border-color': '#ff4911' },
-          '33.333%': { 'background-color': '#2fff2f', 'border-color': '#2fff2f',  },
-          '50%': { 'background-color': '#3300ff', 'border-color': '#3300ff', },
-          '66.667%': { 'background-color': '#ffff00', 'border-color': '#ffff00', },
-          '84.333%': { 'background-color': '#ff00f5', 'border-color': '#ff00f5', }
+          '0%, 100%': { 'background-color': '#7df9ff' },
+          '16.667%': { 'background-color': '#ff4911' },
+          '33.333%': { 'background-color': '#2fff2f' },
+          '50%': { 'background-color': '#3300ff' },
+          '66.667%': { 'background-color': '#ffff00' },
+          '84.333%': { 'background-color': '#ff00f5' }
         },
         colorsImg: {
           '0%': { 'filter': 'hue-rotate(0deg)',},
