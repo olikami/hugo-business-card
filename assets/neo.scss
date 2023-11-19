@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* lexend-mega-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Lexend Mega';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/lexend-mega-v25-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* lexend-mega-900 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Lexend Mega';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/fonts/lexend-mega-v25-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+@layer base {
+	/* Base stuff */
+	a:not(.nostyle) {
+		@apply 
+		underline 
+		hover:no-underline
+		hover:animate-crazy
+		hover:text-white
+		;
+	}
+
+	body {
+		@apply 
+			bg-[#fadf0b]
+			flex flex-col h-screen relative
+			font-bold;
+	}
+
+	/* Card */
+
+	main {
+		@apply m-auto p-4;
+	}
+
+	.card {
+		@apply 
+			rounded-3xl overflow-hidden 
+				max-w-lg my-1 
+				bg-white
+				text-black
+				border-8 border-black
+				overflow-visible relative;
+
+		.icon {
+			@apply absolute top-0 right-0 w-48 bg-[#ff00f5] m-4 rounded-xl transition-colors hover:animate-crazy;
+
+			a {
+				@apply text-white ;
+			}
+		}
+
+		.picture-credits {
+			@apply hidden;
+		}
+
+		.card-lower {
+			@apply p-2;
+		}
+
+		.content {
+			@apply px-3 pb-6 pt-2;
+
+			h1.title {
+				@apply text-3xl font-sans font-black;
+			}
+
+			.inner {
+				@apply mt-2 text-left;
+
+				h2 {
+					@apply text-lg font-black;
+				}
+
+				p:not(:last-child)  {
+        			margin-bottom: 1rem;
+    			}
+			}
+		}
+
+		.contact-info {
+			@apply flex flex-col sm:flex-row justify-around pb-3 mx-auto w-full;
+
+			h2 {
+				@apply font-black;
+			}
+
+			div {
+				@apply text-left;
+
+				a {
+					@apply text-sm;
+				}
+			}
+		}
+
+		/* Img stuff */
+
+		.cover-img {
+			@apply hidden;
+		}
+
+		.img-container {
+			@apply flex justify-start;
+
+			.portrait-img > img {
+				@apply border-solid border-8 border-[#2fff2f] rounded-3xl relative m-4 w-48 h-48 hover:animate-crazyimg;
+			}
+		}
+
+		
+	}
+
+	/* Menu */
+
+	.menu {
+
+		@apply text-xs relative flex flex-row justify-between;
+
+		div {
+			@apply mt-2 mx-2;
+		}
+
+		.list {
+			@apply flex m-2;
+
+			.item {
+				@apply leading-5 text-current justify-center px-2;
+
+				&.active {
+					@apply font-bold;
+				}
+			}
+		}
+	}
+
+	/* Footer */
+	footer {
+		@apply relative bottom-2 w-full;
+
+		p {
+			@apply text-xs p-2 text-center;
+		}
+	}
+}

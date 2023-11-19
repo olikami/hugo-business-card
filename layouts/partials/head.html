@@ -43,7 +43,10 @@
 {{ partial "twittercard.html" . }}
 
 <!-- Tailwind styles -->
-{{ $scss := resources.Get "tailwind.scss" }}
+{{ $scss := resources.Get "business.scss" }}
+{{ if .Site.Params.useAlternateStyle }}
+  {{ $scss = resources.Get "neo.scss" }}
+{{ end }}
 
 {{ if hugo.IsProduction }}
 {{ $style := $scss | resources.ToCSS | resources.PostCSS (dict "config" "prod/postcss.config.js") | fingerprint | resources.PostProcess }}
