@@ -139,7 +139,7 @@
 
 	.menu {
 
-		@apply text-xs relative flex flex-row justify-between;
+		@apply text-xs relative flex flex-col md:flex-row items-center md:justify-between;
 
 		div {
 			@apply mt-2 mx-2;
@@ -179,11 +179,11 @@
 			.item {
 				@apply
 					leading-5 text-current justify-center
-					p-2 m-2 border-8 border-black rounded-xl hover:animate-crazy
+					p-2 m-2 border-8 border-black rounded-xl hover:animate-crazy;
 				;
 
 				&.active {
-					@apply underline;
+					@apply scale-125;
 				}
 			}
 		}
