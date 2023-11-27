@@ -55,10 +55,10 @@
 				overflow-visible relative;
 
 		.icon {
-			@apply absolute top-0 right-0 w-28 h-28 md:w-48 md:h-48 border-8 border-black bg-[#ff00f5] m-4 rounded-xl transition-colors hover:animate-crazy;
+			@apply absolute top-0 right-0 w-28 h-28 md:w-48 md:h-48 border-8 border-black bg-white m-4 rounded-xl transition-colors hover:animate-crazy transition-colors;
 
 			a {
-				@apply text-white ;
+				@apply text-black hover:text-white ;
 			}
 		}
 
@@ -128,7 +128,7 @@
 			@apply flex justify-start;
 
 			.portrait-img > img {
-				@apply border-solid border-8 border-black rounded-3xl relative m-4 w-28 h-28 md:w-48 md:h-48 animate-crazyimg hover:animate-crazy;
+				@apply border-solid border-8 border-black rounded-3xl relative m-4 w-28 h-28 md:w-48 md:h-48 hover:animate-crazyimg;
 			}
 		}
 
