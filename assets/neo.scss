@@ -147,11 +147,11 @@
 
 		.left {
 			.item {
-				&:nth-child(5n+1) {
+				&:nth-child(5n+1).active {
 					@apply bg-[#2fff2f] text-black;
 				}
 
-				&:nth-child(5n+2) {
+				&:nth-child(5n+2).active {
 					@apply bg-[#7df9ff] text-black;
 				}
 			}
@@ -159,15 +159,15 @@
 
 		.right {
 			.item {
-				&:nth-child(5n+1) {
+				&:nth-child(5n+1).active{
 					@apply bg-[#ff00f5] text-white;
 				}
 
-				&:nth-child(5n+2) {
+				&:nth-child(5n+2).active {
 					@apply bg-[#2200ff] text-white;
 				}
 
-				&:nth-child(5n+3) {
+				&:nth-child(5n+3).active {
 					@apply bg-[#ff4911] text-white;
 				}
 			}
@@ -178,13 +178,10 @@
 
 			.item {
 				@apply
+					bg-white
 					leading-5 text-current justify-center
 					p-2 m-2 border-8 border-black rounded-xl hover:animate-crazy;
 				;
-
-				&.active {
-					@apply scale-125;
-				}
 			}
 		}
 	}
