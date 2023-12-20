@@ -15,15 +15,6 @@
 <meta property="og:image:width" content="2000" />
 <meta property="og:image:height" content="1000" />
 
-<!-- Whatsapp -->
-{{ $whatsapp := $img.Fill "400x400 center" }}
-{{ $whatsapp := slice $whatsapp | resources.Concat "whatsapp.jpg" | resources.Fingerprint }}
-<meta property="og:image" content="{{ $whatsapp.Permalink }}"/>
-<meta property="og:image:width" content="400" />
-<meta property="og:image:height" content="400" />
-
-
-
 {{- end -}}
 
 {{- if .IsPage }}
