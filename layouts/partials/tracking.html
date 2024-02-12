@@ -1,0 +1,8 @@
+{{ with .Site.Params.umami }}
+<script
+  defer
+  src="{{ .scriptUrl }}"
+  data-website-id="{{ .websiteId }}"
+  data-domains="{{ (urls.Parse $.Site.BaseURL).Hostname }}"
+></script>
+{{ end }}
