@@ -13,6 +13,7 @@
 			</div>
 			{{- end }}
 			{{ $page := .Page }}
+			{{ if (not .Site.Params.useAlternateStyle ) }}
 			{{ with $background }}
 			{{ if (and $background $portrait) }}
 			{{ $portraitSize := (div $background.Height 4 )}}
@@ -73,6 +74,7 @@
 				</div>
 			{{ end }}
 			{{ end }}
+			{{ end }}	
 			{{ $title := .Page.Title }}
 			{{ with $portrait }}
 			<div class="img-container">
