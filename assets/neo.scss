@@ -170,6 +170,9 @@
 				&:nth-child(5n+3).active {
 					@apply bg-[#ff4911] text-white;
 				}
+				&:nth-child(5n+4).active {
+					@apply bg-[#7df9ff];
+				}
 			}
 		}
 
