@@ -22,10 +22,10 @@
 {{- end }}
 <meta roperty="twitter:title" content="{{ .Title }}"/>
 <meta roperty="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
-{{ with .Site.Social.twitter -}}
+{{ with .Site.Params.twitter -}}
 <meta roperty="twitter:site" content="@{{ . }}"/>
 {{ end -}}
-{{ range .Site.Authors }}
+{{ range .Site.Params.Authors }}
 {{ with .twitter -}}
 <meta roperty="twitter:creator" content="@{{ . }}"/>
 {{ end -}}
