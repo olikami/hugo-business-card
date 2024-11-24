@@ -3,9 +3,13 @@
   "extends": [
     "config:recommended"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["^netlify\\.toml$", "^netlify_parent\\.toml$"],
+      "customType": "regex",
+      "fileMatch": [
+        "^netlify\\.toml$",
+        "^netlify_parent\\.toml$"
+      ],
       "matchStrings": [
         "HUGO_VERSION\\s*=\\s*\"(?<currentValue>[^\"]+)\""
       ],
