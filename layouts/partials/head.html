@@ -50,6 +50,7 @@
 
 {{ if hugo.IsProduction }}
 {{ $style := $scss | css.Sass | css.PostCSS (dict "config" "prod/postcss.config.js") | fingerprint | resources.PostProcess }}
+
 {{ if gt (len .Site.AllPages) 2 }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 {{ else }}
