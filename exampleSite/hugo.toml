@@ -1,0 +1,29 @@
+baseURL = "/"
+languageCode = "en"
+title = "Jane Blogs"
+
+defaultContentLanguage = "en"
+
+enableRobotsTXT = true
+enableGitInfo = true
+
+environment = "production"
+removePathAccents=true
+
+disableKinds = ["taxonomy"]
+
+[build]
+  [build.buildStats]
+    enable = true
+
+[mediaTypes]
+	[mediaTypes."text/vcard"]
+		suffixes = ["vcf"]
+
+[outputFormats]
+  [outputFormats.vcf]
+    baseName = "contact"
+    path = "vcard"
+    isPlainText = true
+    mediaType = "text/vcard"
+    protocol = "https://"
