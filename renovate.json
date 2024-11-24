@@ -17,5 +17,6 @@
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "gohugoio/hugo"
     }
-  ]
+  ],
+  "lockFileMaintenance": { "enabled": true }
 }
