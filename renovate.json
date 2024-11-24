@@ -2,5 +2,16 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^netlify\\.toml$", "^netlify_parent\\.toml$"],
+      "matchStrings": [
+        "HUGO_VERSION\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "depNameTemplate": "hugo",
+      "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "gohugoio/hugo"
+    }
   ]
 }
