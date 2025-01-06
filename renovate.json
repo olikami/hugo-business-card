@@ -18,5 +18,8 @@
       "packageNameTemplate": "gohugoio/hugo"
     }
   ],
-  "lockFileMaintenance": { "enabled": true }
+  "lockFileMaintenance": { 
+    "enabled": true,
+    "extends": ["schedule:quarterly"]
+  }
 }
