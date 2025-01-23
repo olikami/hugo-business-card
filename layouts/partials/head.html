@@ -44,9 +44,10 @@
 
 <!-- Tailwind styles -->
 {{ $scss := resources.Get "business.scss" }}
-{{ if .Site.Params.useAlternateStyle }}
+{{ if ( eq .Type "neo" )  }}
   {{ $scss = resources.Get "neo.scss" }}
 {{ end }}
+
 
 {{ if hugo.IsProduction }}
 {{ $style := $scss | css.Sass | css.PostCSS (dict "config" "prod/postcss.config.js") | fingerprint | resources.PostProcess }}
