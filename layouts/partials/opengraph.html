@@ -6,14 +6,10 @@
 <!-- Open Graph rich image -->
 {{- $images := $.Resources.ByType "image" -}}
 {{ $portrait := $images.GetMatch "{*portrait*}" }}
-{{ $background := $images.GetMatch "{*background*}" }}
 {{- with $portrait -}}
-{{ $logoFilter := (images.Overlay ($portrait.Fill "500x500") 750 250 ) }}
-{{ $img := ($background.Fill "2000x1000") | images.Filter (images.Brightness -10) (images.GaussianBlur 10) $logoFilter }}
-{{ $img := slice $img | resources.Concat "og.jpg" | resources.Fingerprint }}
-<meta property="og:image" content="{{ $img.Permalink }}"/>
-<meta property="og:image:width" content="2000" />
-<meta property="og:image:height" content="1000" />
+<meta property="og:image" content="{{ $portrait.Permalink }}"/>
+<meta property="og:image:width" content="{{ $portrait.Width }}" />
+<meta property="og:image:height" content="{{ $portrait.Width }}" />
 
 {{- end -}}
 
