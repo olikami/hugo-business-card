@@ -1,0 +1,77 @@
+{{ define "main" }}
+	<main>
+		<div class="card">
+			{{ $portrait := .Resources.GetMatch "portrait" }}
+			{{ $page := .Page }}
+			{{ $title := .Page.Title }}
+			{{ with $portrait }}
+				<a href="{{ .RelPermalink }}" target="_blank" class="img-link">
+					<picture class="portrait-img">
+						<source 
+							srcset="
+								{{- $img := . -}}
+								{{- range (slice 1 1.5 1.8 2 2.4 2.5 2.75 3 3.5 4) -}}
+								{{ ( ( printf "%dx webp" (int (mul . 192)) ) | $img.Resize ).RelPermalink }} {{ . }}x,
+								{{- end -}}"
+							type="image/webp"
+						/>
+						<source 
+							srcset="
+								{{- $img := . -}}
+								{{- range (slice 1 1.5 1.8 2 2.4 2.5 2.75 3 3.5 4) -}}
+								{{ ( ( printf "%dx jpg" (int (mul . 192)) ) | $img.Resize ).RelPermalink }} {{ . }}x,
+								{{- end -}}"
+							type="image/jpeg"
+						/>
+						{{ with (.Resize "192x") }}
+						<img
+							src="{{ .RelPermalink }}" alt="{{ T "profilepic" }} {{ $title }}"
+							width="{{ .Width }}" height="{{ .Height }}"
+						>
+						{{ end }}
+					</picture>	
+				</a>
+			{{ end }}
+			<div class="card-left">
+				<div class="content">
+					<h1 class="title">{{ .Page.Title }}</h1>
+				</div>
+				<div class="contact-info">
+					{{ with .Page.Params.phone }}
+					<div>
+						<h2>{{ T "phone" }}</h2>
+						<a href="tel:{{ replace . " " "" }}">
+							{{ . }}
+						</a>
+					</div>
+					{{ end }}
+					{{ with .Page.Params.email }}
+					<div>
+                        <h2>{{ T "email" }}</h2>
+						<a href="mailto:{{  . }}">
+							{{ . }}
+						</a>
+					</div>
+					{{ end }}
+
+					{{ with .Page.Params.mastodon }}
+					<div>
+						<h2>{{ T "mastodon" }}</h2>
+						<a rel="me" href="{{ . }}">
+							{{ replaceRE "^https?://.+..+/@(.+)" "@$1" . }}
+						</a>
+					</div>
+					{{ end }}
+					{{ with .Page.Params.linkedin }}
+					<div>
+						<h2>{{ T "linkedin" }}</h2>
+						<a href="{{ . }}">
+							{{ T "my profile" }}
+						</a>
+					</div>
+					{{ end }}
+				</div>
+			</div>
+		</div>
+	</main>
+{{ end }}

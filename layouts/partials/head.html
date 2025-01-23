@@ -44,8 +44,10 @@
 
 <!-- Tailwind styles -->
 {{ $scss := resources.Get "business.scss" }}
-{{ if ( eq .Type "neo" )  }}
-  {{ $scss = resources.Get "neo.scss" }}
+{{ if ( eq .Type "modern" )  }}
+  {{ $scss = resources.Get "business-modern.scss" }}
+{{ else if ( eq .Type "neo" )  }} 
+	{{ $scss = resources.Get "neo.scss" }}
 {{ end }}
 
 

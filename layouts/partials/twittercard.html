@@ -7,10 +7,7 @@
 {{ $background := $images.GetMatch "{*background*}" }}
 {{- with $portrait -}}
 <meta roperty="twitter:card" content="summary_large_image"/>
-{{ $logoFilter := (images.Overlay ($portrait.Fill "500x500") 750 250 ) }}
-{{ $img := ($background.Fill "2000x1000") | images.Filter (images.Brightness -10) (images.GaussianBlur 10) $logoFilter }}
-{{ $img := slice $img | resources.Concat "twitter.jpg" | resources.Fingerprint }}
-<meta roperty="twitter:image" content="{{ $img.Permalink }}"/>
+<meta roperty="twitter:image" content="{{ $portrait.Permalink }}"/>
 {{- else -}}
 {{- with $.Site.Params.images -}}
 <meta roperty="twitter:card" content="summary_large_image"/>
