@@ -3,10 +3,11 @@
 	<head>
 		{{- partial "head.html" . -}}
 	</head>
-	<body class="flex flex-col h-screen relative bg-gray-100 dark:bg-gray-900">
+	<body class="flex flex-col h-screen relative bg-gray-100 dark:bg-gray-800">
 		{{- partial "nav.html" . -}}
 		{{- block "main" . }}{{- end }}
 		{{- partial "footer.html" . -}}
+		{{- partial "script.html" . -}}
 		{{- partial "tracking.html" . -}}
 	</body>
 </html>
