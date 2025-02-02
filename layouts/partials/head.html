@@ -43,6 +43,7 @@
 {{ partial "twittercard.html" . }}
 
 <!-- Tailwind styles -->
+{{ $numberPages := len .Site.AllPages }}
 {{ $css := resources.Get "business.css" }}
 {{ if ( eq .Type "modern" )  }}
 	{{ $css = resources.Get "business-modern.css" }}
@@ -59,7 +60,7 @@
 			<link rel="stylesheet" href="{{ .RelPermalink }}" />
 		{{ else }}
 			{{ with . | minify | fingerprint }}
-				{{ if gt (len .Site.AllPages) 2 }}
+				{{ if gt $numberPages 2 }}
 					<link
 						rel="stylesheet"
 						href="{{ .RelPermalink }}"
