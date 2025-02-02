@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@theme {
+	--animate-crazy: colors 1s linear infinite;
+	--animate-crazyimg: colorsImg 1s linear infinite;
+	@keyframes colors {
+		0%, 100% {
+			background-color: #7df9ff;
+		}
+		16.667% { 
+			background-color: #ff4911;
+		}
+		33.333% {
+			background-color: #2fff2f;
+		}
+		50% { 
+			background-color: #3300ff;
+		}
+		66.667% { 
+			background-color: #ffff00;
+		}
+		84.333% { 
+			background-color: #ff00f5;
+		}
+	}
+	@keyframes colorsImg {
+		0% {
+			filter: hue-rotate(0deg);
+		}
+		50% { 
+			filter: hue-rotate(180deg);
+		}
+		100% { 
+			filter: hue-rotate(360deg);
+		}
+	}
+}
+
+/* Base stuff */
+a:not(.nostyle) {
+  @apply hover:animate-crazy 
+		underline
+		hover:text-white
+		hover:no-underline;
+}
+
+body {
+  @apply relative
+		flex h-screen flex-col bg-[#fadf0b]
+		font-bold;
+}
+
+/* Card */
+
+main {
+  @apply m-auto p-4;
+}
+
+.card {
+  @apply relative my-1 
+			max-w-lg overflow-hidden 
+			overflow-visible
+			rounded-3xl
+			border-8 border-black
+			bg-white text-black;
+
+  .icon {
+    @apply hover:animate-crazy absolute top-0 right-0 m-4 h-28 w-28 rounded-xl border-8 border-black bg-white transition-colors transition-colors md:h-48 md:w-48;
+
+    a {
+      @apply text-black hover:text-white;
+    }
+  }
+
+  .picture-credits {
+    @apply hidden;
+  }
+
+  .card-lower {
+    @apply p-2;
+  }
+
+  .content {
+    @apply px-3 pt-2 pb-6;
+
+    h1.title {
+      @apply font-sans text-3xl font-black;
+    }
+
+    .inner {
+      @apply mt-2 text-left;
+
+      h2 {
+        @apply text-lg font-black;
+      }
+
+      p:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .contact-info {
+    @apply mx-auto flex w-full flex-col  justify-around pb-3 sm:flex-row;
+
+    h2 {
+      @apply font-black;
+    }
+
+    div {
+      @apply mb-3 rounded-3xl border-8 border-black p-3 text-left;
+      a {
+        @apply text-sm;
+      }
+    }
+
+    div:nth-child(6n + 1) {
+      @apply bg-[#3300ff] text-white;
+    }
+
+    div:nth-child(6n + 2) {
+      @apply bg-[#ff4911] text-white;
+    }
+
+    div:nth-child(6n + 3) {
+      @apply bg-[#fff000];
+    }
+  }
+
+  /* Img stuff */
+
+  .cover-img {
+    @apply hidden;
+  }
+
+  .img-container {
+    @apply flex justify-start;
+
+    .portrait-img > img {
+      @apply hover:animate-crazyimg relative m-4 h-28 w-28 rounded-3xl border-8 border-solid border-black md:h-48 md:w-48;
+    }
+  }
+}
+
+/* Menu */
+
+.menu {
+  @apply relative flex flex-col items-center text-xs md:flex-row md:justify-between;
+
+  div {
+    @apply mx-2 mt-2;
+  }
+
+  .left {
+    .item:nth-child(5n + 1).active {
+      @apply bg-[#2fff2f] text-black;
+    }
+
+    .item:nth-child(5n + 2).active {
+      @apply bg-[#7df9ff] text-black;
+    }
+  }
+
+  .right {
+    .item:nth-child(5n + 1).active {
+      @apply bg-[#ff00f5] text-white;
+    }
+
+    .item:nth-child(5n + 2).active {
+      @apply bg-[#2200ff] text-white;
+    }
+
+    .item:nth-child(5n + 3).active {
+      @apply bg-[#ff4911] text-white;
+    }
+    .item:nth-child(5n + 4).active {
+      @apply bg-[#7df9ff];
+    }
+  }
+
+  .list {
+    @apply m-2 flex;
+
+    .item {
+      @apply hover:animate-crazy
+				m-2 justify-center rounded-xl
+				border-8 border-black bg-white p-2 leading-5 text-current;
+    }
+  }
+}
+
+/* Footnotes */
+
+.footnotes {
+  ol {
+    @apply list-inside list-decimal;
+    li {
+      p {
+        @apply inline;
+      }
+    }
+  }
+}
+
+/* Footer */
+footer {
+  @apply relative bottom-2 w-full;
+
+  p {
+    @apply p-2 text-center text-xs;
+  }
+}

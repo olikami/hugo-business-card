@@ -43,27 +43,36 @@
 {{ partial "twittercard.html" . }}
 
 <!-- Tailwind styles -->
-{{ $scss := resources.Get "business.scss" }}
+{{ $css := resources.Get "business.css" }}
 {{ if ( eq .Type "modern" )  }}
-  {{ $scss = resources.Get "business-modern.scss" }}
+	{{ $css = resources.Get "business-modern.css" }}
 {{ else if ( eq .Type "neo" )  }} 
-	{{ $scss = resources.Get "neo.scss" }}
+	{{ $css = resources.Get "neo.css" }}
 {{ end }}
-
-
-{{ if hugo.IsProduction }}
-{{ $style := $scss | css.Sass | css.PostCSS (dict "config" "prod/postcss.config.js") | fingerprint | resources.PostProcess }}
-
-{{ if gt (len .Site.AllPages) 2 }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
-{{ else }}
-<style>
-	{{ $style.Content | safeCSS }}
-</style>
-{{ end }}
-{{ else }}
-{{ $style := $scss | css.Sass | css.PostCSS (dict "config" "dev/postcss.config.js") | fingerprint }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ with $css }}
+	{{ $opts := dict
+		"inlineImports" true
+		"optimize" (not hugo.IsDevelopment)
+	}}
+	{{ with . | css.TailwindCSS $opts }}
+		{{ if hugo.IsDevelopment }}
+			<link rel="stylesheet" href="{{ .RelPermalink }}" />
+		{{ else }}
+			{{ with . | minify | fingerprint }}
+				{{ if gt (len .Site.AllPages) 2 }}
+					<link
+						rel="stylesheet"
+						href="{{ .RelPermalink }}"
+						integrity="{{ .Data.Integrity }}"
+						crossorigin="anonymous" />
+				{{ else }}
+					<style>
+						{{ .Content | safeCSS }}
+					</style>
+				{{ end }}
+			{{ end }}
+		{{ end }}
+	{{ end }}
 {{ end }}
 
 <!-- Icons -->
