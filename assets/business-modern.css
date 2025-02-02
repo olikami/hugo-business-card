@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @layer base {
 	a {
 		@apply text-blue-600 dark:text-blue-400 hover:underline;
@@ -23,56 +24,80 @@
 @layer components {
 
 	/* Card */
+	#card-container {
+		@apply flex flex-col gap-12;
+	}
+	#card-container.raised .card {
+		@apply rotate-x-0 rotate-y-0 rotate-z-0;
+	}
+	#card-container.flipped .card {
+		@apply rotate-x-0 rotate-y-180 rotate-z-0;
+	}
 	.card {
-		@apply p-4 rounded-sm flex gap-4 justify-between flex-row-reverse aspect-[91/55] w-96 bg-white dark:bg-black text-black dark:text-white overflow-visible relative;
+		@apply rounded-sm 
+		 relative
+		aspect-[91/55] w-full sm:w-96 
+		bg-white dark:bg-black text-black dark:text-white overflow-visible
+		rotate-x-30 rotate-y-1 rotate-z-15 transform-3d
+		transition-transform duration-666
+		shadow-2xl;
 
-		.icon {
-			@apply absolute top-2 right-2 w-10;
+		.front, .back {
+			@apply backface-hidden absolute w-full h-full p-4;
+		}
 
-			a {
-				@apply text-white;
+		.back {
+			@apply rotate-y-180 transform-3d;
+
+			p {
+				@apply text-sm;
+			}    
+
+			p:not(:last-child)  {
+				margin-bottom: 1rem;
 			}
 		}
 
+		.front {
+			@apply flex gap-4 justify-between flex-row-reverse rotate-y-0 transform-3d;
 
-		.card-left {
-			@apply flex flex-col justify-between;
-		}
-
-		.content {
-
-			h1.title {
-				@apply text-xl font-medium;
+			.card-left {
+				@apply flex flex-col justify-between;
 			}
-
-			.inner {
-				@apply mt-2 font-light text-left;
-
-				h2 {
-					@apply text-lg font-medium;
+	
+			.content {
+	
+				h1.title {
+					@apply text-xl font-medium;
 				}
-
-				p:not(:last-child)  {
-					margin-bottom: 1rem;
-				}
-			}
-		}
-
-		.contact-info {
-			@apply flex flex-col justify-start mx-auto w-max;
-
-			div {
-				@apply flex flex-row-reverse justify-end items-end gap-2;
-
-				a {
-					@apply font-light text-sm text-current;
-				}
-
-				h2 {
-					@apply text-gray-700 dark:text-gray-300 text-xs h-min;
+	
+				.inner {
+					@apply mt-2 font-light text-left;
+	
+					h2 {
+						@apply text-lg font-medium;
+					}
 				}
 			}
+	
+			.contact-info {
+				@apply flex flex-col justify-start mx-auto w-max;
+	
+				div {
+					@apply flex flex-row-reverse justify-end items-end gap-2;
+	
+					a {
+						@apply font-light text-sm text-current;
+					}
+	
+					h2 {
+						@apply text-gray-700 dark:text-gray-300 text-xs h-min;
+					}
+				}
+			}
 		}
+
+		
 
 		/* Img stuff */
 		.img-link {
@@ -82,12 +107,9 @@
 				@apply rounded-sm w-32;
 			}
 		}
-
-		
 	}
 
 	/* Menu */
-
 	.menu {
 
 		@apply text-xs relative dark:text-white flex flex-row justify-between;
@@ -107,5 +129,10 @@
 				@apply font-bold;
 			}
 		}
+	}
+
+	/* Icons */ 
+	.icons {
+		@apply w-full flex justify-evenly;
 	}
 }

@@ -1,0 +1,18 @@
+{{ if ( eq .Type "modern" )  }}
+<script>
+  const element = document.getElementById("card-container");
+  function raise() {
+    element.classList.add("raised");
+  }
+
+  function flip() {
+    element.classList.add("raised");
+    element.classList.toggle("flipped");
+  }
+
+  function reset() {
+    element.classList.remove("raised");
+    element.classList.remove("flipped");
+  }
+</script>
+{{ end }}
