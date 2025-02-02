@@ -2,9 +2,6 @@
 
 
 @layer base {
-	a {
-		@apply text-blue-600 dark:text-blue-400 hover:underline;
-	}
 
 	/* Footer */
 	footer {
@@ -51,6 +48,10 @@
 
 			p {
 				@apply text-sm;
+
+				a {
+					@apply text-blue-600 dark:text-blue-400 hover:underline;
+				}
 			}    
 
 			p:not(:last-child)  {
@@ -134,5 +135,9 @@
 	/* Icons */ 
 	.icons {
 		@apply w-full flex justify-evenly;
+
+		button, a {
+			@apply p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors cursor-pointer;
+		}
 	}
 }
