@@ -18,8 +18,8 @@ importers:
         specifier: 8.5.1
         version: 8.5.1
       postcss-100vh-fix:
-        specifier: 1.0.2
-        version: 1.0.2(postcss@8.5.1)
+        specifier: 2.0.0
+        version: 2.0.0(postcss@8.5.1)
       postcss-cli:
         specifier: 11.0.0
         version: 11.0.0(jiti@1.21.7)(postcss@8.5.1)
@@ -468,9 +468,9 @@ packages:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
 
-  postcss-100vh-fix@1.0.2:
-    resolution: {integrity: sha512-t7vqk9AfjI4fXmWlQCEiMZFFhi1hro4WlECINI1TV6Qh1XapUJE++gCmNr95F5Hen/+bz1OmO+SiSB9TZmFmSg==}
-    engines: {node: '>=10.0'}
+  postcss-100vh-fix@2.0.0:
+    resolution: {integrity: sha512-8ztJY6WWHQYGPC1BffaW7QCsIg6TrELNaHo61fagskWJ5T7gC9RqYVaGIP4gh4c8QySTU9yAF7zrAF3cckDYRQ==}
+    engines: {node: '>=20.0'}
     peerDependencies:
       postcss: ^8.1.0
 
@@ -1292,7 +1292,7 @@ snapshots:
 
   pirates@4.0.6: {}
 
-  postcss-100vh-fix@1.0.2(postcss@8.5.1):
+  postcss-100vh-fix@2.0.0(postcss@8.5.1):
     dependencies:
       postcss: 8.5.1
 
