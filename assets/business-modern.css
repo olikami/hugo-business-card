@@ -21,7 +21,7 @@
 	}
 
 	main:has(#card-container.raised) {
-		@apply mx-2;
+		@apply mx-2 md:mx-auto;
 	}
 	
 }
