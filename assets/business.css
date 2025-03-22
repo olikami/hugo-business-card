@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+	@apply flex flex-col h-screen relative bg-gray-100 dark:bg-gray-800;
+}
+
 /* Base stuff */
 a {
 	@apply text-blue-600 dark:text-blue-400 hover:underline;
