@@ -17,7 +17,11 @@
 	}
 
 	main {
-		@apply m-auto p-4;
+		@apply m-4 my-auto md:m-auto p-4 transition-all duration-666;
+	}
+
+	main:has(#card-container.raised) {
+		@apply mx-2;
 	}
 	
 }
