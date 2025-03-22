@@ -3,6 +3,10 @@
 
 @layer base {
 
+	body {
+		@apply flex flex-col h-screen relative bg-gray-100 dark:bg-gray-800;
+	}
+
 	/* Footer */
 	footer {
 		@apply relative bottom-2 w-full dark:text-white;

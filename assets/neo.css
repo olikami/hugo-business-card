@@ -36,6 +36,12 @@
 	}
 }
 
+
+body {
+  @apply flex flex-col h-screen relative bg-gray-100 dark:bg-gray-800;
+}
+
+
 /* Base stuff */
 a:not(.nostyle) {
   @apply hover:animate-crazy 
@@ -158,6 +164,10 @@ main {
 
     .item:nth-child(5n + 2).active {
       @apply bg-[#7df9ff] text-black;
+    }
+
+    .item:nth-child(5n + 3).active {
+      @apply bg-[#ff4911] text-white;
     }
   }
 
