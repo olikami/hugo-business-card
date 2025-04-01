@@ -121,6 +121,22 @@
 		}
 	}
 
+	.icons {
+		button {
+			svg {
+				@apply size-6;
+			}
+		}
+
+		button.raise {
+			@apply group-[.raised]:hidden;
+		}
+
+		button.reset {
+			@apply group-[.raised]:block hidden;
+		}
+	}
+
 	/* Menu */
 	.menu {
 
