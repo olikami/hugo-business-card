@@ -28,18 +28,19 @@ main {
 
 	.picture-credits {
 		@apply absolute inline-block; 
-		svg {
-			@apply w-4 h-4 text-white absolute bottom-1 left-1 bg-black rounded-full;
-		}
+
 		.tooltip-content {
-			@apply 
-				opacity-0 transition-opacity w-48
+			@apply opacity-0 transition-opacity w-48
 				text-xs
 				absolute -top-10 left-6
-				bg-white bg-opacity-80
+				bg-white/80
 				dark:bg-black
 				p-2 rounded
 			;
+		}
+
+		svg {
+			@apply w-4 h-4 text-white absolute bottom-1 left-1 bg-black rounded-full;
 		}
 	}
 
