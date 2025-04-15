@@ -3,5 +3,5 @@
   publish = "exampleSite/public"
 
 [build.environment]
-  HUGO_VERSION = "0.146.4"
+  HUGO_VERSION = "0.146.5"
   NODE_VERSION = "20"
