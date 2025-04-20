@@ -68,7 +68,7 @@ main {
 				@apply text-lg font-medium;
 			}
 
-			p:not(:last-child)  {
+			p:not(:last-child), ul:not(:last-child)  {
 				margin-bottom: 1rem;
 			}
 		}
@@ -107,6 +107,45 @@ main {
 	
 }
 
+/* paper */
+
+.paper {
+	@apply p-8
+	shadow shadow-lg max-w-lg 
+	bg-white dark:bg-black 
+	text-black dark:text-white 
+	overflow-visible 
+	font-serif
+	text-center
+	flex flex-col gap-6;
+
+	h1.title {
+		@apply text-xl;
+	}
+
+	h2 {
+		@apply text-base font-bold;
+	}
+
+	.authors, .date {
+		@apply text-lg;
+	}
+
+	.abstract {
+		@apply text-left;
+		h2 {
+			@apply text-base font-bold text-center;
+		}
+
+		p {
+			@apply text-justify hyphens-auto;
+
+			a {
+				@apply text-inherit hover:underline;
+			}
+		}
+	}
+}
 /* Menu */
 
 .menu {

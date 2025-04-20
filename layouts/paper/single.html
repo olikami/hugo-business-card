@@ -1,0 +1,23 @@
+{{ define "main" }}
+	<main>
+		<div class="paper">
+			<h1 class="title">{{ .Page.Title }}</h1>
+			{{ with .Page.Params.authors}}
+			{{ $len := (len .) }}
+			<span class="authors">{{- range $index, $element :=  .  -}}{{ if .url}}<a href="{{ .url }}">{{ .name }}</a>{{else}}{{ .name }}{{end}}{{- if lt $index (sub $len 1) }} and {{ end -}}{{- end -}}</span>
+			{{ end }}
+			{{ with .Page.Date }}
+			<time class="date">{{ . | time.Format ":date_medium" }}</time>
+			{{else }}
+			<time class="date">{{ .Page.Lastmod | time.Format ":date_medium" }}</time>
+			{{end}}
+			{{ with .Page.Params.status}}
+			<h2>{{.}}</h2>
+			{{ end}}
+			<div class="abstract">
+				<h2>Abstract</h2>
+				{{ .Page.Content }}
+			</div>
+		</div>
+	</main>
+{{ end }}
