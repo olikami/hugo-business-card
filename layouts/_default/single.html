@@ -130,7 +130,14 @@
 						</a>
 					</div>
 					{{ end }}
-
+					{{ with .Page.Params.strava }}
+					<div>
+						<h2>{{ T "strava" }}</h2>
+						<a href="https://www.strava.com/athletes/{{ . }}">
+							{{ . }}
+						</a>
+					</div>
+					{{ end }}
 					{{ with .Page.Params.mastodon }}
 					<div>
 						<h2>{{ T "mastodon" }}</h2>
