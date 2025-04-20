@@ -1,8 +1,14 @@
 <title>{{ .Page.Title }}</title>
 
+{{ if eq .Page.Type "paper"}}
+<meta
+	name="description"
+	content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+{{ else }}
 <meta
 	name="description"
 	content="{{ T "description" . }}" />
+{{ end }}
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,6 +23,29 @@
 
 
 <!-- JSON-LD -->
+{{ if eq .Page.Type "paper"}}
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"type": "ScholarlyArticle",
+	"name": "{{ .Page.Title }}",
+	{{ with .Page.PublishDate }}"datePublished": "{{ .Format "2006-01-02T15:04:05Z0700" | safeJSStr }}",{{ end }}
+	{{ with .Page.Lastmod }}"dateModified": "{{ .Format "2006-01-02T15:04:05Z0700" | safeJSStr }}",{{ end }}
+	"abstract": "{{ .Page.Content | plainify }}",
+	"author": [
+	{{ $len := (len .Page.Params.authors) }}
+	{{- range $index, $element :=  .Page.Params.authors  -}}
+	{
+		"@type": "Person",
+		{{with .url }}"url": "{{ . | safeJSStr }}",{{ end }}
+		"name": {{ .name}} 
+		
+	}{{- if lt $index (sub $len 1) }},{{ end -}}
+	{{- end -}}
+	]
+}
+</script>
+{{ else }}
 <script type="application/ld+json">
 {
 	"@context": "https://schema.org",
@@ -35,6 +64,7 @@
 	"url": "{{ .Page.Permalink }}"
 }
 </script>
+{{ end }}
 
 <!-- Opengraph -->
 {{ partial "opengraph.html" . }}
@@ -77,7 +107,7 @@
 {{ end }}
 
 <!-- Icons -->
-{{ $portrait = .Resources.GetMatch "*portrait*" }}
+{{ $portrait := .Resources.GetMatch "*portrait*" }}
 {{ with $portrait }}
 <!-- Apple icons -->
 <link rel="apple-touch-icon" sizes="120x120" href="{{ (.Fill "120x120 png").Permalink }}"/>
