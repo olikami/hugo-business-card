@@ -4,7 +4,7 @@
 			<h1 class="title">{{ .Page.Title }}</h1>
 			{{ with .Page.Params.authors}}
 			{{ $len := (len .) }}
-			<span class="authors">{{- range $index, $element :=  .  -}}{{ if .url}}<a href="{{ .url }}">{{ .name }}</a>{{else}}{{ .name }}{{end}}{{- if lt $index (sub $len 1) }} and {{ end -}}{{- end -}}</span>
+			<span class="authors">{{- range $index, $element :=  .  -}}{{ if .url}}<a href="{{ .url }}" target="_blank">{{ .name }}</a>{{else}}{{ .name }}{{end}}{{- if lt $index (sub $len 1) }} and {{ end -}}{{- end -}}</span>
 			{{ end }}
 			{{ with .Page.Date }}
 			<time class="date">{{ . | time.Format ":date_medium" }}</time>
