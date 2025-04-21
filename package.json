@@ -2,6 +2,7 @@
   "name": "hugo-business-card",
   "dependencies": {
     "@tailwindcss/cli": "4.1.4",
+    "computer-modern": "0.1.2",
     "tailwindcss": "4.1.4"
   }
 }

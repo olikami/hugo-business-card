@@ -77,6 +77,8 @@
 {{ $css := resources.Get "business.css" }}
 {{ if ( eq .Type "modern" )  }}
 	{{ $css = resources.Get "business-modern.css" }}
+	{{ else if ( eq .Type "paper" )  }} 
+	{{ $css = resources.Get "paper.css" }}
 {{ else if ( eq .Type "neo" )  }} 
 	{{ $css = resources.Get "neo.css" }}
 {{ end }}
