@@ -8,9 +8,9 @@
 			{{ end }}
 			{{ with .Page.Date }}
 			<time class="date">{{ . | time.Format ":date_medium" }}</time>
-			{{else }}
+			{{ else }}
 			<time class="date">{{ .Page.Lastmod | time.Format ":date_medium" }}</time>
-			{{end}}
+			{{ end }}
 			{{ with .Page.Params.status}}
 			<h2>{{.}}</h2>
 			{{ end}}
