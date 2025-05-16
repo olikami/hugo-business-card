@@ -6,9 +6,9 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^netlify\\.toml$",
-        "^netlify_parent\\.toml$"
+      "managerFilePatterns": [
+        "/^netlify\\.toml$/",
+        "/^netlify_parent\\.toml$/"
       ],
       "matchStrings": [
         "HUGO_VERSION\\s*=\\s*\"(?<currentValue>[^\"]+)\""
@@ -18,8 +18,10 @@
       "packageNameTemplate": "gohugoio/hugo"
     }
   ],
-  "lockFileMaintenance": { 
+  "lockFileMaintenance": {
     "enabled": true,
-    "extends": ["schedule:quarterly"]
+    "extends": [
+      "schedule:quarterly"
+    ]
   }
 }
